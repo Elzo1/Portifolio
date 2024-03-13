@@ -33,19 +33,16 @@ const projetos = () => {
             )
         },
         {
-            id: 1,
-            titu2: "Ecomerce",
+            id: 2,
+            titu2: "Sistema de casdastro de pessoas",
 
-            par: "Este projeto de back-end foi desenvolvido para fornecer uma base sólida para a operação de um e-commerce, garantindo segurança, eficiência e escalabilidade. E a implementação de práticas modernas de autenticação assegura a proteção dos dados dos usuários. O código-fonte está disponível publicamente para referência e colaboração.",
-
+            par: "Este projeto consiste em um sistema de cadastro de pessoas desenvolvido usando tecnologias Java, Spring Boot, Hibernate e MySQL. O objetivo principal é realizar as operações CRUD (Create, Read, Update, Delete) para gerenciar informações de indivíduos, como nome e e-mail.",
             titu: "Tecnologias usadas:",
             imgs: (
                 <>
                     < SiSpringboot size={50} className='text-green-700 px-1 flex hover:scale-105  duration-200' />
                     < SiHibernate size={50} className='text-blue-950 px-1 flex hover:scale-105 duration-200' />
                     < SiMysql size={60} className='text-blue-700 px-1 flex hover:scale-105 duration-200' />
-                    < SiSpringsecurity size={50} className='text-green-700 px-1 flex hover:scale-105 duration-200' />
-                    < SiJsonwebtokens size={50} className='text-gray-950 px-1 flex hover:scale-105 duration-200' />
                     < GrDocker size={50} className='text-blue-700 px-1 flex hover:scale-105 duration-200' />
                     < FaGitSquare size={50} className='text-white text-3xl px-1 hover:text-red-600 hover:scale-105 duration-200' />
 
@@ -72,7 +69,7 @@ const projetos = () => {
                         projeto.map(({ id, imgs, titu, par, titu2 }) => (
 
                             <div key={id} className='hover:border-y-2  shadow-2xl hover:shadow-gray-600  hover:scale-105 duration-500 rounded-2xl'>
-                                <h2 className='mt-2 ml-2'>{titu2}</h2>
+                                <h2 className='mt-2 ml-2 font-assinatura2 text-3xl'>{titu2}</h2>
                                 <p className=' mt-5 ml-2 '>{par}</p>
 
                                 <div>

@@ -9,6 +9,7 @@ module.exports = {
     extend: {},
     fontFamily: {
       assinatura:["Great vibes"],
+      assinatura2:["Protest Revolution"],
     },
   },
   plugins: [],
