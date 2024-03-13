@@ -1,5 +1,5 @@
 import React from 'react'
-import { BsArrowRightCircle } from "react-icons/fa";
+import { BsArrowRightCircle } from "react-icons/bs";
 import ft from "../../imgs/elzo1.png"
 import { Link } from 'react-scroll';
 
