@@ -1,86 +1,72 @@
-import React, { useState } from 'react'
-import { FaBars, FaTimes } from "react-icons/fa";
-import { Link } from 'react-scroll'; 
-
+import React, { useState } from 'react';
+import { Link } from 'react-scroll';
+import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 
 const Navbar = () => {
+    const [menuAberto, setMenuAberto] = useState(false);
 
-  {/*função para mudar o estado do icone do menu direito*/ }
-  const [nav, setNav] = useState(false);
+    const alternarMenu = () => {
+        setMenuAberto(!menuAberto);
+    };
 
-  {/*função para chamar os links na barra de navegaçã*/ }
-  const links = [
-    {
-      id: 1,
-      link: 'Home',
-    },
-    {
-      id: 2,
-      link: 'Sobre',
-    },
-    {
-      id: 3,
-      link: 'Projetos',
-    },
-    {
-      id: 4,
-      link: 'Experiência',
-    },
-    {
-      id: 5,
-      link: 'Contatos',
-    }
-  ]
+    const links = [
+        { id: 1, texto: 'Home', to: 'home' },
+        { id: 2, texto: 'Sobre', to: 'sobre' },
+        { id: 3, texto: 'Projetos', to: 'projetos' },
+        { id: 4, texto: 'Experiencias', to: 'experiencias' },
+        { id: 5, texto: 'Contato', to: 'Contato' },
+    ];
 
-  return (
+    return (
+        <div className='w-full fixed z-10 bg-gradient-to-b from-black to-gray-900 text-white'>
+            <div className='flex items-center justify-between max-w-screen-lg mx-auto px-4 h-16'>
+                <div>
+                    <h1 className='text-3xl font-bold text-cyan-400'>MeuPortfólio</h1>
+                </div>
+                {/* Links do menu para telas grandes */}
+                <ul className='hidden md:flex'>
+                    {links.map(({ id, texto, to }) => (
+                        <li
+                            key={id}
+                            className='px-4 cursor-pointer font-medium text-gray-300 hover:scale-105 hover:text-white duration-200'
+                        >
+                            <Link to={to} smooth duration={500}>
+                                {texto}
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
+                {/* Ícone do menu para telas pequenas */}
+                <div
+                    onClick={alternarMenu}
+                    className='cursor-pointer text-gray-400 md:hidden hover:text-white duration-200'
+                >
+                    {menuAberto ? <AiOutlineClose size={30} /> : <AiOutlineMenu size={30} />}
+                </div>
+            </div>
 
-    <div className='flex justify-between items-center w-full h-20 bg-black text-white fixed'>
-      <div>
-        {/*fundo e nome no cabeçalho*/}
+            {/* Menu responsivo */}
+            {menuAberto && (
+                <ul className='flex flex-col items-center absolute top-16 left-0 w-full bg-gradient-to-b from-black to-gray-900 md:hidden'>
+                    {links.map(({ id, texto, to }) => (
+                        <li
+                            key={id}
+                            className='px-4 py-2 text-gray-300 cursor-pointer hover:scale-105 hover:text-white duration-200'
+                        >
+                            <Link
+                                to={to}
+                                smooth
+                                duration={500}
+                                onClick={() => setMenuAberto(false)}
+                            >
+                                {texto}
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
+            )}
+        </div>
+    );
+};
 
-        <h1 className=' text-3xl font-assinatura ml-3  '>divMaster</h1>
-      </div>
-
-      {/*links do cabeçalho chamando a função links */}
-
-     
-        <ul  className='hidden md:flex'>
-
-
-          {links.map(({ id, link }) => (
-            <Link key={id}
-              className='px-4 cursor-pointer capitalize
-            font-medium text-gray-500 
-            hover:scale-105 duration-200'>
-              <Link to={link}  smooth duration={500}>{link}</Link>
-            </Link>
-          ))}
-        </ul>
-      {/*chamando a função nav para mudar o estado do menu*/}
-      <div
-        onClick={() => setNav(!nav)}
-        className='cursor-pointer pr-4 z-10 text-gray-500'>
-        {nav ? <FaTimes size={20} /> : <FaBars size={20} />}
-      </div>
-
-      {nav && (
-
-        <ul className='flex flex-col justify-center items-center 
-      absolute top-0 left-0 w-full h-screen bg-gradient-to-b
-      from-black to-gray-900 text-gray-700 md:hidden'>
-
-          {links.map(({ id, link }) => (
-            <li key={id} className='px-4 cursor-pointer capitalize py-6 text-4xl'>
-              <Link onClick={() => setNav(!nav)}  smooth duration={500}>{link}</Link>
-            </li>
-          ))}
-        </ul>
-
-      )}
-
-
-    </div>
-  )
-}
-
-export default Navbar
+export default Navbar;

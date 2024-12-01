@@ -2,7 +2,7 @@ import React from 'react'
 
 export const Sobre = () => {
   return (
-    <div className='w-full h-screen bg-gradient-to-b  to-black from-gray-800 text-white '>
+    <div id="sobre" className='w-full h-screen bg-gradient-to-b  to-black from-gray-800 text-white '>
       <div className='max-w-screen-lg p- mx-auto flex flex-col justify-center w-full h-full'>
         <div className='pb-8 max-sm:mt-72  md:mt-1 '>
 
