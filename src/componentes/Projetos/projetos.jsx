@@ -33,7 +33,7 @@ const Projetos = () => {
     {
       id: 2,
       titu2: 'PDV',
-      par: 'Projeto de back-end para PDV de vendas com Spring Security e JWT. Suporta múltiplos usuários com associação por ID.',
+      par: 'Projeto de back-end para PDV de vendas com Spring Security e JWT. Suporta múltiplos usuários com associação por ID. Para que cada um tenha acesso aos seus dados',
       titu: 'Tecnologias usadas:',
       imgs: (
         <>
