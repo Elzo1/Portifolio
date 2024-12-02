@@ -47,7 +47,7 @@ const Sociais = () => {
           <BsFillPersonLinesFill size={30} />
         </>
       ),
-      href: '/Curriculo Elzo.docx',
+      href: '/Curriculo Elzo (Atualizado).pdf',
       style: 'rounded-br-md bg-green-500',
       download: true,
     },
